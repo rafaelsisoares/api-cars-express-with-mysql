@@ -11,13 +11,15 @@ services:
       - ./:/api
     ports:
       - 3001:3001
+    depends_on:
+      - database
   
   database:
     image: mysql:8.0.29
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=process.env.MYSQL_ROOT_PASSWORD
-      - MYSQL_DATABASE=process.env.MYSQL_DATABASE
+      - MYSQL_ROOT_PASSWORD=root(password)
+      - MYSQL_DATABASE=apicarsdb
     ports:
       - 3306:3306
     volumes:
