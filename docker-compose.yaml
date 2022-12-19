@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  node:
+    build: ./
+    image: node:16.15.1
+    working_dir: /api
+    container_name: api_cars_with_db
+    restart: always
+    volumes:
+      - ./:/api
+    ports:
+      - 3001:3001
+  
+  database:
+    image: mysql:8.0.29
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=process.env.MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=process.env.MYSQL_DATABASE
+    ports:
+      - 3306:3306
+    volumes:
+      - ./api_cars.sql:/docker-entrypoint-initdb.d/api_cars.sql
