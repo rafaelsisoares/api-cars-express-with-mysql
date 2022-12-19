@@ -17,4 +17,6 @@ CREATE TABLE IF NOT EXISTS models (
     name VARCHAR(100) NOT NULL,
     brand_id TINYINT NOT NULL UNSIGN,
     fuel_id TINYINT NOT NULL UNSIGN,
+    FOREIGN KEY (brand_id) REFERENCES brands(id),
+    FOREIGN KEY (fuel_id) REFERENCES fuels(id)
 );
