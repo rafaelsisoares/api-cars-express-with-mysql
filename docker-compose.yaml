@@ -2,7 +2,9 @@ version: '3'
 
 services:
   node:
-    build: ./
+    build:
+      dockerfile: ./Dockerfile
+      context: .
     image: node:16.15.1
     working_dir: /api
     container_name: api_cars_with_db
