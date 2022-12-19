@@ -26,3 +26,7 @@ services:
       - 3306:3306
     volumes:
       - ./api_cars.sql:/docker-entrypoint-initdb.d/api_cars.sql
+      - ./.dataDB:/var/lib/mysql
+
+volumes:
+  .dataDB:
