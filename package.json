@@ -21,8 +21,8 @@
   "homepage": "https://github.com/rafaelsisoares/api-cars-express-with-mysql#readme",
   "dependencies": {
     "dotenv": "^16.0.1",
-    "express": "4.17",
-    "mysql2": "^2.3.3"
+    "express": "4.17.1",
+    "mysql2": "2.3.3"
   },
   "devDependencies": {
     "eslint": "6.8",
