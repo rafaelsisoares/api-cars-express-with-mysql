@@ -40,4 +40,20 @@ brandsRouter.get('/:id', async (_req, res) => {
     }
 });
 
+brandsRouter.put('/:id', async (req, res) => {
+    const { name } = req.body;
+    const { id } = req.params;
+    try {
+        const [result] = await brandsDB.updateBrand(name, id);
+        if (result.affectedRows > 0) {
+            res.status(200).json({ message: `Marca com ID ${id} foi atualizada.` });
+        } else {
+            res.status(404).json({ message: 'Marca não encontrada.' });
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ message: 'Erro ao fazer a atualização' });
+    }
+});
+
 module.exports = brandsRouter;
