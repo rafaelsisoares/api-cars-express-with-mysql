@@ -18,6 +18,7 @@ services:
   
   database:
     image: mysql:8.0.29
+    container_name: database
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=root(password)
