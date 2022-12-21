@@ -5,6 +5,9 @@ const insert = (brand) => conn.execute(
     [brand]
     );
 
+const getAllBrands = () => conn.execute('SELECT * FROM brands');
+
 module.exports = {
     insert,
+    getAllBrands,
 };
