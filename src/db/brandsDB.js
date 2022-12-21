@@ -10,8 +10,8 @@ const getAllBrands = () => conn.execute('SELECT * FROM brands');
 const getBrandById = (id) => conn.execute('SELECT * FROM brands WHERE id = ?', [id]);
 
 const updateBrand = (newBrand, id) => conn.execute(
-    `UPDATE FROM brands
-     SET name = ?, WHERE id = ?`,
+    `UPDATE brands
+     SET name = ? WHERE id = ?`,
      [newBrand, id]
     );
 
