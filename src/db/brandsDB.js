@@ -7,7 +7,10 @@ const insert = (brand) => conn.execute(
 
 const getAllBrands = () => conn.execute('SELECT * FROM brands');
 
+const getBrandById = (id) => conn.execute('SELECT * FROM brands WHERE id = ?', [id]);
+
 module.exports = {
     insert,
     getAllBrands,
+    getBrandById,
 };

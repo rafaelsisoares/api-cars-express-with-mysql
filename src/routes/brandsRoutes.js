@@ -25,4 +25,19 @@ brandsRouter.get('/', async (_req, res) => {
     }
 });
 
+brandsRouter.get('/:id', async (_req, res) => {
+    const { id } = _req.params;
+    try {
+        const [[result]] = await brandsDB.getBrandById(id);
+        if (result) {
+            res.status(200).json(result);
+        } else {
+            res.status(404).json({ message: 'Marca não encontrada' });
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ message: 'Erro ao fazer a busca' });
+    }
+});
+
 module.exports = brandsRouter;
