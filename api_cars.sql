@@ -18,3 +18,11 @@ CREATE TABLE models (
     CONSTRAINT fk_brand_id FOREIGN KEY (brand_id) REFERENCES brands(id),
     CONSTRAINT fk_fuel_id FOREIGN KEY (fuel_id) REFERENCES fuels(id)
 );
+
+INSERT INTO fuels (type) VALUES 
+	('Gasoline'),
+    ('Alcohol'),
+    ('Flex'),
+    ('Diesel'),
+    ('Hybrid'),
+    ('Electric');
