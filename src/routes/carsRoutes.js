@@ -24,4 +24,15 @@ carsRouter.get('/', async (_req, res) => {
     }
 });
 
+carsRouter.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const [[result]] = await carsDB.getById(id);
+        res.status(result ? 200 : 404).json(result);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ message: 'Erro ao fazer a busca' });
+    }
+});
+
 module.exports = carsRouter;
