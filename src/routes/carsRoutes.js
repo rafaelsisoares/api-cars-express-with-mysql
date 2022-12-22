@@ -50,4 +50,19 @@ carsRouter.put('/:id', async (req, res) => {
     }
 });
 
+carsRouter.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const [result] = await carsDB.remove(id);
+        if (result.affectedRows > 0) {
+            res.status(204).end();
+        } else {
+            res.status(404).json({ message: 'Carro não encontrado' });
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ message: 'Erro ao fazer a exclusão' });
+    }
+});
+
 module.exports = carsRouter;
