@@ -7,7 +7,10 @@ const insert = (car) => conn.execute(
 
 const getAll = () => conn.execute('SELECT * FROM models');
 
+const getById = (id) => conn.execute('SELECT * FROM models WHERE id = ?', [id]);
+
 module.exports = {
     insert,
     getAll,
+    getById,
 };
