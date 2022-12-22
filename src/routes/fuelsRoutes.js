@@ -13,3 +13,5 @@ fuelsRouter.get('/', async (_req, res) => {
         res.status(500).json({ message: 'Erro ao fazer a busca' });
     }
 });
+
+module.exports = fuelsRouter;
