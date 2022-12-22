@@ -14,4 +14,14 @@ carsRouter.post('/', async (req, res) => {
     }
 });
 
+carsRouter.get('/', async (_req, res) => {
+    try {
+        const [result] = await carsDB.getAll();
+        res.status(200).json(result);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ message: 'Erro ao fazer a busca' });
+    }
+});
+
 module.exports = carsRouter;
