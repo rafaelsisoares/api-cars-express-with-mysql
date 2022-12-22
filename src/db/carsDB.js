@@ -14,9 +14,12 @@ const update = (data, id) => conn.execute(
     [data.name, data.brandId, data.fuelId, id]
 );
 
+const remove = (id) => conn.execute('DELETE FROM models WHERE id = ?', [id]);
+
 module.exports = {
     insert,
     getAll,
     getById,
     update,
+    remove,
 };
