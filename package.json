@@ -2,8 +2,10 @@
   "name": "api-cars-express-with-mysql",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/server.js",
   "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,8 +20,9 @@
   },
   "homepage": "https://github.com/rafaelsisoares/api-cars-express-with-mysql#readme",
   "dependencies": {
-    "express": "4.17",
-    "mysql2": "^2.3.3"
+    "dotenv": "^16.0.1",
+    "express": "4.17.1",
+    "mysql2": "2.3.3"
   },
   "devDependencies": {
     "eslint": "6.8",
