@@ -41,7 +41,7 @@ brandsRouter.get('/:id', async (_req, res) => {
     }
 });
 
-brandsRouter.put('/:id', async (req, res) => {
+brandsRouter.put('/:id', checkBrandName, async (req, res) => {
     const { name } = req.body;
     const { id } = req.params;
     try {
