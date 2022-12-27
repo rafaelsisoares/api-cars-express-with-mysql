@@ -1,10 +1,13 @@
 const { Router } = require('express');
 
 const carsDB = require('../db/carsDB');
+const checkCarBrand = require('../middlewares/validators/checkCarBrand');
+const checkCarFuel = require('../middlewares/validators/checkCarFuel');
+const checkCarName = require('../middlewares/validators/checkCarName');
 
 const carsRouter = Router();
 
-carsRouter.post('/', async (req, res) => {
+carsRouter.post('/', checkCarName, checkCarBrand, checkCarFuel, async (req, res) => {
     try {
         const [result] = await carsDB.insert(req.body);
         res.status(201).json({ id: result.insertId, ...req.body });
@@ -35,7 +38,7 @@ carsRouter.get('/:id', async (req, res) => {
     }
 });
 
-carsRouter.put('/:id', async (req, res) => {
+carsRouter.put('/:id', checkCarName, checkCarBrand, checkCarFuel, async (req, res) => {
     const { id } = req.params;
     try {
         const [result] = await carsDB.update(req.body, id);
