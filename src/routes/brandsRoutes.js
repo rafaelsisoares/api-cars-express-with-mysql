@@ -1,10 +1,11 @@
 const express = require('express');
 
 const brandsDB = require('../db/brandsDB');
+const checkBrandName = require('../middlewares/validators/checkBrandName');
 
 const brandsRouter = express.Router();
 
-brandsRouter.post('/', async (req, res) => {
+brandsRouter.post('/', checkBrandName, async (req, res) => {
     const { name } = req.body;
     try {
         const [result] = await brandsDB.insert(name);
